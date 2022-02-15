@@ -37,7 +37,6 @@ buckarooValidateCreditCards = {
                 e.target
             );
         });
-        this.form.submit(this.submit);
     },
 
     toggleClasses: function(valid, target) {
@@ -51,6 +50,7 @@ buckarooValidateCreditCards = {
 
     submit: function(e) {
         var parent = jQuery('input[name="payment_method"]:checked').parent();
+        parent.find(".encryptedCardData").val('');
         var cardNumber = parent.find(".cardNumber").val();
         var cvc = parent.find(".cvc").val();
         var cardHolderName = parent.find(".cardHolderName").val();
